@@ -3,7 +3,7 @@ class MainSubmenu: cTab_RscControlsGroup
 	#ifndef cTab_IS_TABLET
 		#define cTab_MENU_MAX_ELEMENTS 4
 	#else
-		#define cTab_MENU_MAX_ELEMENTS 5
+		#define cTab_MENU_MAX_ELEMENTS 6
 	#endif
 	idc = 3300;
 	x = MENU_X;
@@ -53,6 +53,17 @@ class MainSubmenu: cTab_RscControlsGroup
 			sizeEx = MENU_sizeEx;
 			action = "[31] call cTab_fnc_userMenuSelect;";
 		};
+		class casbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_CASBTN;
+			text = "CAS"; //--- ToDo: Localize;
+			x = 0;
+			y = MENU_elementY(4);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "[32] call cTab_fnc_userMenuSelect;";
+		};
 		#ifdef cTab_IS_TABLET
 			class lockUavCam: cTab_MenuItem
 			{
@@ -60,7 +71,7 @@ class MainSubmenu: cTab_RscControlsGroup
 				text = "Lock UAV Cam"; //--- ToDo: Localize;
 				toolTip = "Lock UAV Cam to this position, a UAV has to be previously selected";
 				x = 0;
-				y = MENU_elementY(4);
+				y = MENU_elementY(5);
 				w = MENU_W;
 				h = MENU_elementH;
 				sizeEx = MENU_sizeEx;
@@ -83,7 +94,7 @@ class MainSubmenu: cTab_RscControlsGroup
 
 class EnemySub1: cTab_RscControlsGroup
 {
-	#define cTab_MENU_MAX_ELEMENTS 8
+	#define cTab_MENU_MAX_ELEMENTS 9
 	idc = 3301;
 	x = MENU_X;
 	y = MENU_Y;
@@ -168,12 +179,24 @@ class EnemySub1: cTab_RscControlsGroup
 			sizeEx = MENU_sizeEx;
 			action = "cTabUserSelIcon set [1,5];[12] call cTab_fnc_userMenuSelect;";
 		};
+		class navybtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_UKNBTN;
+			text = "Naval"; //--- ToDo: Localize;
+			toolTip = "Ships, boats and submarines";
+			x = 0;
+			y = MENU_elementY(7);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,41];[12] call cTab_fnc_userMenuSelect;";
+		};
 		class uknbtn: cTab_MenuItem
 		{
 			idc = IDC_USRMN_UKNBTN;
 			text = "Unknown"; //--- ToDo: Localize;
 			x = 0;
-			y = MENU_elementY(7);
+			y = MENU_elementY(8);
 			w = MENU_W;
 			h = MENU_elementH;
 			sizeEx = MENU_sizeEx;
@@ -521,7 +544,7 @@ class EnemySub4: cTab_RscControlsGroup
 
 class CasulSub1: cTab_RscControlsGroup
 {
-	#define cTab_MENU_MAX_ELEMENTS 5
+	#define cTab_MENU_MAX_ELEMENTS 6
 	idc = 3305;
 	x = MENU_X;
 	y = MENU_Y;
@@ -585,6 +608,19 @@ class CasulSub1: cTab_RscControlsGroup
 			sizeEx = MENU_sizeEx;
 			action = "cTabUserSelIcon set [1,23];[1] call cTab_fnc_userMenuSelect;";
 		};
+		// Medical LZ
+		class mcibtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_MLZBTN;
+			text = "MLZ"; //--- ToDo: Localize;
+			toolTip = "Medical Landing Zone";
+			x = 0;
+			y = MENU_elementY(5);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,24];[1] call cTab_fnc_userMenuSelect;";
+		};
 		class exit: cTab_MenuExit
 		{
 			idc = -1;
@@ -601,7 +637,8 @@ class CasulSub1: cTab_RscControlsGroup
 
 class GenSub1: cTab_RscControlsGroup
 {
-	#define cTab_MENU_MAX_ELEMENTS 3
+	//#define cTab_MENU_MAX_ELEMENTS 3
+	#define cTab_MENU_MAX_ELEMENTS 12
 	idc = 3306;
 	x = MENU_X;
 	y = MENU_Y;
@@ -640,6 +677,212 @@ class GenSub1: cTab_RscControlsGroup
 			h = MENU_elementH;
 			sizeEx = MENU_sizeEx;
 			action = "cTabUserSelIcon set [1,31];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class dzbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_DZBTN;
+			text = "DZ"; //--- ToDo: Localize;
+			toolTip = "Drop Zone";
+			x = 0;
+			y = MENU_elementY(3);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,60];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class rlypbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "RlyP"; //--- ToDo: Localize;
+			toolTip = "Rally Point";
+			x = 0;
+			y = MENU_elementY(4);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,34];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class lrpbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "INP"; //--- ToDo: Localize;
+			toolTip = "Insertion Point";
+			x = 0;
+			y = MENU_elementY(5);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,32];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class epbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "EP"; //--- ToDo: Localize;
+			toolTip = "Extraction Point";
+			x = 0;
+			y = MENU_elementY(6);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,36];[1] call cTab_fnc_userMenuSelect;";
+		};
+
+		class spbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "SP"; //--- ToDo: Localize;
+			toolTip = "Start Point";
+			x = 0;
+			y = MENU_elementY(7);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,38];[1] call cTab_fnc_userMenuSelect;";
+		};
+
+		class ckpbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "CKP"; //--- ToDo: Localize;
+			toolTip = "Check Point";
+			x = 0;
+			y = MENU_elementY(8);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,37];[1] call cTab_fnc_userMenuSelect;";
+		};
+
+		class rpbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "RP"; //--- ToDo: Localize;
+			toolTip = "Release Point";
+			x = 0;
+			y = MENU_elementY(9);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,37];[1] call cTab_fnc_userMenuSelect;";
+		};
+
+		class aapbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "AA"; //--- ToDo: Localize;
+			toolTip = "Assembly Area";
+			x = 0;
+			y = MENU_elementY(10);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,39];[1] call cTab_fnc_userMenuSelect;";
+		};
+
+		class aopbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_LZBTN;
+			text = "AO"; //--- ToDo: Localize;
+			toolTip = "Objective";
+			x = 0;
+			y = MENU_elementY(11);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,35];[1] call cTab_fnc_userMenuSelect;";
+		};
+
+		class exit: cTab_MenuExit
+		{
+			idc = -1;
+			text = "Exit"; //--- ToDo: Localize;
+			x = 0;
+			y = MENU_elementY(cTab_MENU_MAX_ELEMENTS);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "[0] call cTab_fnc_userMenuSelect;";
+		};
+	};
+};
+
+class CasSub1: cTab_RscControlsGroup
+{
+	#define cTab_MENU_MAX_ELEMENTS 6
+	idc = 3308;
+	x = MENU_X;
+	y = MENU_Y;
+	w = MENU_W;
+	h = MENU_H(cTab_MENU_MAX_ELEMENTS);
+	class controls
+	{
+		class IGUIBack_2206: cTab_IGUIBack
+		{
+			idc = IDC_USRMN_IGUIBACK_2206;
+			x = 0;
+			y = 0;
+			w = MENU_W;
+			h = MENU_H(cTab_MENU_MAX_ELEMENTS);
+		};
+		class cascpbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_CASCPBTN;
+			text = "CP"; //--- ToDo: Localize;
+            toolTip="Control Point";
+			x = 0;
+			y = MENU_elementY(1);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,50];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class casipbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_CASIPBTN;
+			text = "IP"; //--- ToDo: Localize;
+			toolTip = "Initiation Point";
+			x = 0;
+			y = MENU_elementY(2);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,51];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class casapbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_CASAPBTN;
+			text = "AP"; //--- ToDo: Localize;
+			toolTip = "Action Point";
+			x = 0;
+			y = MENU_elementY(3);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,52];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class casbpbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_CASBPBTN;
+			text = "BP"; //--- ToDo: Localize;
+			toolTip = "Battle Point";
+			x = 0;
+			y = MENU_elementY(4);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,53];[1] call cTab_fnc_userMenuSelect;";
+		};
+		class casepbtn: cTab_MenuItem
+		{
+			idc = IDC_USRMN_CASEPBTN;
+			text = "EP"; //--- ToDo: Localize;
+			toolTip = "Egress Point";
+			x = 0;
+			y = MENU_elementY(5);
+			w = MENU_W;
+			h = MENU_elementH;
+			sizeEx = MENU_sizeEx;
+			action = "cTabUserSelIcon set [1,54];[1] call cTab_fnc_userMenuSelect;";
 		};
 		class exit: cTab_MenuExit
 		{

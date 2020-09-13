@@ -1,6 +1,6 @@
 /*
  	Name: cTab_fnc_updateInterface
- 	
+
  	Author(s):
 		Gundy
 
@@ -11,10 +11,10 @@
 	Parameters:
 	(Optional)
 		0: ARRAY - Property pairs in the form of [["propertyName",propertyValue],[...]]
- 	
+
  	Returns:
 		BOOLEAN - Always true
- 	
+
  	Example:
 		[[["mapType","SAT"],["mapScaleDsp","4"]]] call cTab_fnc_updateInterface;
 */
@@ -59,16 +59,16 @@ if (isNil "_mode") then {
 		// ------------ DISPLAY POSITION ------------
 		if (_x select 0 == "dspIfPosition") exitWith {
 			_dspIfPosition = _x select 1;
-			
+
 			if !(_isDialog) then {
 				// get the current position of the background control
 				_backgroundPosition = [_displayName] call cTab_fnc_getBackgroundPosition;
 				_backgroundPositionX = _backgroundPosition select 0 select 0;
 				_backgroundPositionW = _backgroundPosition select 0 select 2;
-				
+
 				// get the original position of the background control
 				_backgroundConfigPositionX = _backgroundPosition select 1 select 0;
-				
+
 				// figure out if we need to do anything
 				if !((_backgroundPositionX != _backgroundConfigPositionX) isEqualTo _dspIfPosition) then {
 					// calculate offset required to shift position to the opposite
@@ -84,7 +84,7 @@ if (isNil "_mode") then {
 		// ------------ DIALOG POSITION ------------
 		if (_x select 0 == "dlgIfPosition") exitWith {
 			_backgroundOffset = _x select 1;
-			
+
 			if (_isDialog) then {
 				if (_backgroundOffset isEqualTo []) then {
 					_backgroundOffset = if (_interfaceInit) then {
@@ -115,7 +115,7 @@ if (isNil "_mode") then {
 				_osdCtrl ctrlSetBackgroundColor [0,0,0,1 - _brightness];
 			};
 		};
-		
+
 		// ------------ NIGHT MODE ------------
 		// 0 = day mode, 1 = night mode, 2 = automatic
 		if (_x select 0 == "nightMode") exitWith {
@@ -127,13 +127,13 @@ if (isNil "_mode") then {
 					if (_nightMode) then {"\cTab\img\TAD_background_night_ca.paa"} else {"\cTab\img\TAD_background_ca.paa"};
 				};
 				if (_displayName in ["cTab_Android_dsp","cTab_Android_dlg"]) exitWith {
-					if (_nightMode) then {"\cTab\img\android_background_night_ca.paa"} else {"\cTab\img\android_background_ca.paa"};
+					"\cTab\img\android_background_ca.paa";// if (_nightMode) then {"\cTab\img\android_background_night_ca.paa"} else {"\cTab\img\android_background_ca.paa"};
 				};
 				if (_displayName in ["cTab_microDAGR_dsp","cTab_microDAGR_dlg"]) exitWith {
-					if (_nightMode) then {"\cTab\img\microDAGR_background_night_ca.paa"} else {"\cTab\img\microDAGR_background_ca.paa"};
+					"\cTab\img\microDAGR_background_ca.paa";//if (_nightMode) then {"\cTab\img\microDAGR_background_night_ca.paa"} else {"\cTab\img\microDAGR_background_ca.paa"};
 				};
 				if (_displayName in ["cTab_Tablet_dlg"]) exitWith {
-					if (_nightMode) then {"\cTab\img\tablet_background_night_ca.paa"} else {"\cTab\img\tablet_background_ca.paa"};
+					"\cTab\img\tablet_background_ca.paa";//if (_nightMode) then {"\cTab\img\tablet_background_night_ca.paa"} else {"\cTab\img\tablet_background_ca.paa"};
 				};
 				""
 			};
@@ -145,14 +145,14 @@ if (isNil "_mode") then {
 				};
 			};
 		};
-		
+
 		// ------------ MODE ------------
 		if (_x select 0 == "mode") exitWith {
 			cTabUserPos = [];
-			
-			_displayItems = call {				
+
+			_displayItems = call {
 				if (_displayName == "cTab_Tablet_dlg") exitWith {
-					[3300,3301,3302,3303,3304,3305,3306,3307,
+					[3300,3301,3302,3303,3304,3305,3306,3307,3308,
 					IDC_CTAB_GROUP_DESKTOP,
 					IDC_CTAB_GROUP_UAV,
 					IDC_CTAB_GROUP_HCAM,
@@ -170,7 +170,7 @@ if (isNil "_mode") then {
 					IDC_CTAB_NOTIFICATION]
 				};
 				if (_displayName == "cTab_Android_dlg") exitWith {
-					[3300,3301,3302,3303,3304,3305,3306,3307,
+					[3300,3301,3302,3303,3304,3305,3306,3307,3308,
 					IDC_CTAB_GROUP_MENU,
 					IDC_CTAB_GROUP_MESSAGE,
 					IDC_CTAB_GROUP_COMPOSE,
@@ -183,7 +183,7 @@ if (isNil "_mode") then {
 					IDC_CTAB_NOTIFICATION]
 				};
 				if (_displayName in ["cTab_FBCB2_dlg","cTab_TAD_dlg"]) exitWith {
-					[3300,3301,3302,3303,3304,3305,3306,3307,
+					[3300,3301,3302,3303,3304,3305,3306,3307,3308,
 					IDC_CTAB_NOTIFICATION]
 				};
 				[IDC_CTAB_NOTIFICATION] // default
@@ -191,7 +191,7 @@ if (isNil "_mode") then {
 			if !(_displayItems isEqualTo []) then {
 				_btnActCtrl = _display displayCtrl IDC_CTAB_BTNACT;
 				_displayItemsToShow = [];
-				
+
 				call {
 					// ---------- DESKTOP -----------
 					if (_mode == "DESKTOP") exitWith {
@@ -204,9 +204,9 @@ if (isNil "_mode") then {
 						_mapTypes = [_displayName,"mapTypes"] call cTab_fnc_getSettings;
 						_mapType = [_displayName,"mapType"] call cTab_fnc_getSettings;
 						_mapIDC = [_mapTypes,_mapType] call cTab_fnc_getFromPairs;
-						
+
 						_displayItemsToShow pushBack _mapIDC;
-						
+
 						_mapTools = [_displayName,"mapTools"] call cTab_fnc_getSettings;
 						if (!isNil "_mapTools" && {_mapTools}) then {
 							_displayItemsToShow append [
@@ -216,14 +216,14 @@ if (isNil "_mode") then {
 								IDC_CTAB_OSD_HOOK_DIR
 							];
 						};
-						
+
 						_showMenu = [_displayName,"showMenu"] call cTab_fnc_getSettings;
 						if (!isNil "_showMenu" && {_showMenu}) then	{
 							_displayItemsToShow pushBack IDC_CTAB_GROUP_MENU;
 						};
-						
+
 						_btnActCtrl ctrlSetTooltip "";
-						
+
 						// update scale and world position when not on interface init
 						if (!_interfaceInit) then {
 							if (_isDialog) then {
@@ -239,7 +239,7 @@ if (isNil "_mode") then {
 							_targetMapName = [_displayName,"mapType"] call cTab_fnc_getSettings;
 							_targetMapIDC = [_mapTypes,_targetMapName] call cTab_fnc_getFromPairs;
 							_targetMapCtrl = _display displayCtrl _targetMapIDC;
-							
+
 							// If we find the map to be shown, we are switching away from BFT. Lets save map scale and position
 							if (ctrlShown _targetMapCtrl) then {
 								_mapScale = cTabMapScale * cTabMapScaleFactor / 0.86 * (safezoneH * 0.8);
@@ -293,7 +293,7 @@ if (isNil "_mode") then {
 						['rendertarget13',_data] spawn cTab_fnc_createHelmetCam;
 					};
 				};
-				
+
 				// hide every _displayItems not in _displayItemsToShow
 				{(_display displayCtrl _x) ctrlShow (_x in _displayItemsToShow)} count _displayItems;
 			};
@@ -323,7 +323,7 @@ if (isNil "_mode") then {
 					[_displayName,[["mapScaleDsp",_mapScaleKm]],false] call cTab_fnc_setSettings;
 				};
 				cTabMapScale = _mapScaleKm / cTabMapScaleFactor;
-				
+
 				_osdCtrl = _display displayCtrl IDC_CTAB_OSD_MAP_SCALE;
 				if (!isNull _osdCtrl) then {
 					// divide by 2 because we want to display the radius, not the diameter
@@ -332,7 +332,7 @@ if (isNil "_mode") then {
 					} else {
 						[_mapScaleKm / 2,0,1] call CBA_fnc_formatNumber
 					};
-					_osdCtrl ctrlSetText format ["%1",_mapScaleTxt];	
+					_osdCtrl ctrlSetText format ["%1",_mapScaleTxt];
 				};
 			};
 		};
@@ -361,7 +361,7 @@ if (isNil "_mode") then {
 				_targetMapName = _x select 1;
 				_targetMapIDC = [_mapTypes,_targetMapName] call cTab_fnc_getFromPairs;
 				_targetMapCtrl = _display displayCtrl _targetMapIDC;
-				
+
 				if (!_interfaceInit && _isDialog) then {
 					_previousMapCtrl = controlNull;
 					{
@@ -377,18 +377,18 @@ if (isNil "_mode") then {
 						if (isNil "_targetMapWorldPos") then {_targetMapWorldPos = [_previousMapCtrl] call cTab_fnc_ctrlMapCenter};
 					};
 				};
-				
+
 				// Hide all unwanted map types
 				{
 					if (_x select 0 != _targetMapName) then {
 						(_display displayCtrl (_x select 1)) ctrlShow false;
 					};
 				} count _mapTypes;
-				
+
 				// Update OSD element if it exists
 				_osdCtrl = _display displayCtrl IDC_CTAB_OSD_MAP_TGGL;
 				if (!isNull _osdCtrl) then {_osdCtrl ctrlSetText _targetMapName;};
-				
+
 				// show correct map contorl
 				if (!ctrlShown _targetMapCtrl) then {
 					_targetMapCtrl ctrlShow true;
@@ -552,7 +552,7 @@ if (!isNull _loadingCtrl) then {
 			setMousePosition (_this select 0);
 		},0,_mousePos] call CBA_fnc_addPerFrameHandler;
 	};
-	
+
 	_loadingCtrl ctrlShow false;
 	while {ctrlShown _loadingCtrl} do {};
 };

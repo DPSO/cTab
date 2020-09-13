@@ -1,6 +1,6 @@
 /*
  	Name: cTab_fnc_unitInEnabledVehicleSeat
- 	
+
  	Author(s):
 		Gundy
 
@@ -9,15 +9,15 @@
 		The front seciton-of a vehilce is defined as:
 			- Ground vehicles, everyone in the same compartment as the driver, including the driver. Excluded are people sitting in the cargo / passenger compartment of a Truck or APC
 			- Aircraft, pilot and co-pilot / gunner, but not door gunners or any passengers
-	
+
 	Parameters:
 		0: OBJECT - Unit object to check
 		1: OBJECT - Vehicle to check against
 		2: STRING - String of device to check for (current options are: "FBCB2" and "TAD")
- 	
+
  	Returns:
 		BOOLEAN - True if unit is in the front-section of a cTab enabled vehicle, false if not
- 	
+
  	Example:
 		_playerHasCtabItem = [player,["ItemcTab","ItemAndroid","ItemMicroDAGR"]] call cTab_fnc_unitInEnabledVehicleSeat;
 */

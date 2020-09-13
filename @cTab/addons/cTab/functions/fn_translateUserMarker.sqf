@@ -1,12 +1,12 @@
 /*
 	Name: cTab_fnc_translateUserMarker
-	
+
 	Author(s):
 		Gundy
 
 	Description:
 		Take the condensed user marker data and translate it so that it can be drawn much quicker
-		
+
 		Received marker data format:
 			Index 0: ARRAY   - 2D marker position
 			Index 1: INTEGER - number of icon
@@ -14,7 +14,7 @@
 			Index 3: INTEGER - octant of reported movement
 			Index 4: STRING  - marker time
 			Index 5: OBJECT  - marker creator
-			
+
 		Translated marker data format:
 			Index 0: ARRAY  - marker position
 			Index 1: STRING - path to marker icon
@@ -23,13 +23,13 @@
 			Index 4: ARRAY  - marker color
 			Index 5: STRING - marker time
 			Index 6: STRING - text alignment
-	
+
 	Parameters:
 		0: ARRAY - Marker data
-	
+
 	Returns:
 		ARRAY - Translated marker data
-	
+
 	Example:
 		[[1714.35,5716.82],0,0,0,"12:00"] call cTab_fnc_translateUserMarker;
 */
@@ -48,6 +48,7 @@ _texture1 = call {
 	if (_markerIcon == 4) exitWith {"\A3\ui_f\data\map\markers\nato\o_air.paa";};
 	if (_markerIcon == 5) exitWith {"\A3\ui_f\data\map\markers\nato\o_plane.paa"};
 	if (_markerIcon == 6) exitWith {"\A3\ui_f\data\map\markers\nato\o_unknown.paa"};
+	if (_markerIcon == 41) exitWith {"\A3\ui_f\data\map\markers\nato\o_naval.paa"};
 	if (_markerIcon == 7) exitWith {"\cTab\img\o_inf_rifle.paa"};
 	if (_markerIcon == 8) exitWith {"\cTab\img\o_inf_mg.paa"};
 	if (_markerIcon == 9) exitWith {"\cTab\img\o_inf_at.paa"};
@@ -60,9 +61,25 @@ _texture1 = call {
 	if (_markerIcon == 21) exitWith {"\A3\ui_f\data\map\markers\military\circle_CA.paa"};
 	if (_markerIcon == 22) exitWith {"\A3\ui_f\data\map\mapcontrol\Hospital_CA.paa"};
 	if (_markerIcon == 23) exitWith {"\A3\ui_f\data\map\markers\military\warning_CA.paa"};
+    if (_markerIcon == 24) exitWith {"\A3\ui_f\data\map\markers\military\pickup_ca.paa"};
 	_color = cTabColorBlue;
 	if (_markerIcon == 30) exitWith {"\A3\ui_f\data\map\markers\nato\b_hq.paa"};
-	if (_markerIcon == 31) exitWith {"\A3\ui_f\data\map\markers\military\end_CA.paa"};
+	if (_markerIcon == 31) exitWith {"\A3\ui_f\data\map\markers\military\pickup_ca.paa"};
+	if (_markerIcon == 32) exitWith {"\A3\ui_f\data\map\markers\military\end_CA.paa"};
+	if (_markerIcon == 33) exitWith {"\A3\ui_f\data\map\markers\military\marker_ca.paa"};
+	if (_markerIcon == 34) exitWith {"\A3\ui_f\data\map\markers\military\join_ca.paa"};
+	if (_markerIcon == 35) exitWith {"\A3\ui_f\data\map\markers\military\objective_ca.paa"};
+	if (_markerIcon == 36) exitWith {"\A3\ui_f\data\map\markers\military\start_ca.paa"};
+	if (_markerIcon == 37) exitWith {"\cTab\img\ckp_ca.paa"};
+	if (_markerIcon == 38) exitWith {"\cTab\img\sp_ca.paa"};
+	if (_markerIcon == 39) exitWith {"\cTab\img\aa_ca.paa"};
+	if (_markerIcon == 40) exitWith {"\cTab\img\rp_ca.paa"};
+	if (_markerIcon == 50) exitWith {"\ctab\img\CP.paa"};
+	if (_markerIcon == 51) exitWith {"\cTab\img\IP.paa"};
+	if (_markerIcon == 52) exitWith {"\cTab\img\AP.paa"};
+	if (_markerIcon == 53) exitWith {"\cTab\img\BP.paa"};
+    if (_markerIcon == 54) exitWith {"\cTab\img\EP.paa"};
+    if (_markerIcon == 60) exitWith {"\cTab\img\DZ.paa"};
 	""
 };
 

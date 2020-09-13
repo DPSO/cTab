@@ -1,5 +1,6 @@
 #define GUI_MARGIN_X	(0.05)
-#define GUI_MARGIN_Y	(0.2)
+//#define GUI_MARGIN_Y	(0.2)
+#define GUI_MARGIN_Y	(0.02)
 #define GUI_TAD_W	(0.86)
 #define GUI_TAD_H	(0.86)
 

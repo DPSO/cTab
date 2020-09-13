@@ -138,11 +138,22 @@ cTabUAVlist --- UAVs
 cTabHcamlist --- HELMET CAMS
 Units on our side, that have either helmets that have been specified to include a helmet cam, or ItemCTabHCAM in their inventory.
 */
-{
+/*{
 	if (side _x in _validSides) then {
 		if (headgear _x in cTab_helmetClass_has_HCam || {[_x,["ItemcTabHCam"]] call cTab_fnc_checkGear}) then {
 			0 = _cTabHcamlist pushBack _x;
 		};
+	};
+} count allUnits;
+*/
+
+{
+if (side _x in _validSides) then 
+	{
+		_helmet = headgear _x;
+		_camera = getNumber (configfile >> "CfgWeapons" >> _helmet >> "CTAB_Camera");
+		if(getNumber (configfile >> "CfgWeapons" >> _helmet >> "CTAB_Camera") == 0) then {_camera = false;} else {_camera = true;};
+		if (_helmet in cTab_helmetClass_has_HCam || _camera || {[_x,["ItemcTabHCam"]] call cTab_fnc_checkGear}) then {0 = _cTabHcamlist pushBack _x;};
 	};
 } count allUnits;
 

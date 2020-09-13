@@ -8,7 +8,7 @@
 if (isArray (ConfigFile >> "cTab_settings" >> "cTab_vehicleClass_has_FBCB2")) then {
 	cTab_vehicleClass_has_FBCB2_server = getArray (ConfigFile >> "cTab_settings" >> "cTab_vehicleClass_has_FBCB2");
 } else {
-	cTab_vehicleClass_has_FBCB2_server = ["MRAP_01_base_F","MRAP_02_base_F","MRAP_03_base_F","Wheeled_APC_F","Tank","Truck_01_base_F","Truck_03_base_F"];
+	cTab_vehicleClass_has_FBCB2_server = ["MRAP_01_base_F","MRAP_02_base_F","MRAP_03_base_F","Wheeled_APC_F","Tank","Truck_01_base_F","Truck_03_base_F", "DEVAS_MEKO200TN", "DEVAS_Type209"];
 };
 publicVariable "cTab_vehicleClass_has_FBCB2_server";
 
@@ -24,7 +24,8 @@ publicVariable "cTab_vehicleClass_has_TAD_server";
 if (isArray (ConfigFile >> "cTab_settings" >> "cTab_helmetClass_has_HCam")) then {
 	cTab_helmetClass_has_HCam_server = getArray (ConfigFile >> "cTab_settings" >> "cTab_helmetClass_has_HCam");
 } else {
-	cTab_helmetClass_has_HCam_server = ["H_HelmetB_light","H_Helmet_Kerry","H_HelmetSpecB","H_HelmetO_ocamo","BWA3_OpsCore_Fleck_Camera","BWA3_OpsCore_Schwarz_Camera","BWA3_OpsCore_Tropen_Camera"];
+	cTab_helmetClass_has_HCam_server = ["H_HelmetB_light","H_Helmet_Kerry","H_HelmetSpecB","H_HelmetO_ocamo","BWA3_OpsCore_Fleck_Camera","BWA3_OpsCore_Schwarz_Camera","BWA3_OpsCore_Tropen_Camera"
+	,"rhsusf_opscore_ut_pelt_nsw_cam","rhsusf_opscore_paint_pelt_nsw_cam","rhsusf_opscore_mc_cover_pelt_cam","rhsusf_opscore_fg_pelt_cam","rhsusf_opscore_ut_pelt_cam"];
 };
 publicVariable "cTab_helmetClass_has_HCam_server";
 
