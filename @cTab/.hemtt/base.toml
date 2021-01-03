@@ -1,0 +1,8 @@
+name = "ctab"
+prefix = "ctab"
+author = "dpso"
+template = "cba"
+mainprefix = "z"
+files = ["mod.cpp"]
+folder_optionals = true
+sig_version = 3

@@ -18,9 +18,9 @@ class CfgPatches
 		{
 			"CBA_MAIN"
 		};
-		versionDesc="cTab";
-		version="2.2.2.5";
-		versionStr="2.2.2.5";
+		versionDesc="DPSOcTab";
+		version="2.2.2.5d";
+		versionStr="2.2.2.5d";
 		versionAr[]={2,2,2,5};
 		authors[]=
 		{
@@ -7996,7 +7996,7 @@ class CfgWeapons
 	{
 		descriptionshort="HNV-2930 Micro Defense Advanced GPS Receiver";
 		descriptionuse="<t color='#9cf953'>Use: </t>Show Android Based BFT";
-		displayname="MicroDAGR";
+		displayname="MicroDAGR CTAB";
 		picture="\cTab\img\icon_MicroDAGR.paa";
 		model="\ctab\data\itemMicroDAGR.p3d";
 		class ItemInfo: CBA_MiscItem_ItemInfo

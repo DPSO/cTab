@@ -11,10 +11,8 @@
 // Map position within background, pixel based
 #define cTab_GUI_android_MAP_X (452)
 #define cTab_GUI_android_MAP_Y (713)
-//#define cTab_GUI_android_MAP_W (1067)
-#define cTab_GUI_android_MAP_W (1167)
-//#define cTab_GUI_android_MAP_H (622)
-#define cTab_GUI_android_MAP_H (626)
+#define cTab_GUI_android_MAP_W (1067)
+#define cTab_GUI_android_MAP_H (622)
 
 // Height of header and footer OSD elements
 #define cTab_GUI_android_OSD_HEADER_H (60)
@@ -220,7 +218,6 @@ class cTab_android_header: cTab_RscPicture
 {
 	IDC_COUNTER
 	text = "#(argb,8,8,3)color(0,0,0,1)";
-	//text = "";
 	x = pxToScreen_X(cTab_GUI_android_MAP_X);
 	y = pxToScreen_Y(cTab_GUI_android_MAP_Y);
 	w = pxToScreen_W(cTab_GUI_android_MAP_W);
